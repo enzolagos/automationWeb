@@ -38,15 +38,18 @@ public class LoginTest {
         Thread.sleep(2000);
         //verification
         Assertions.assertTrue(driver.findElement(By.xpath("//a[text()='Logout']")).isDisplayed(),"ERROR, no se pudo logear");
+
+        //driver.switchTo().alert().accept();
     }
+
 }
 /*
 * click boton login --> //img[@src='/Images/design/pagelogin.png']
-email ---> ctl00_MainContent_LoginControl1_TextBoxEmail
-pwd ---> ctl00_MainContent_LoginControl1_TextBoxPassword
-login --> ctl00_MainContent_LoginControl1_ButtonLogin
+* email ---> ctl00_MainContent_LoginControl1_TextBoxEmail
+* pwd ---> ctl00_MainContent_LoginControl1_TextBoxPassword
+* login --> ctl00_MainContent_LoginControl1_ButtonLogin
 
-logout --> //a[text()='Logout']   ---> Assertions
+* logout --> //a[text()='Logout']   ---> Assertions
 
 selenium@selenium2022.com
 12345*/
