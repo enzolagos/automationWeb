@@ -37,7 +37,7 @@ public class LoginTest {
         driver.findElement(By.id("ctl00_MainContent_LoginControl1_ButtonLogin")).click();
         Thread.sleep(2000);
         //verification
-        Assertions.assertTrue(driver.findElement(By.xpath("//a[text()='Logout']")).isDisplayed(),"ERROR, no se pudo logear");
+        Assertions.assertTrue(!driver.findElements(By.xpath("//a[text()='Logout']")).isEmpty(),"ERROR, no se pudo logear");
 
         //driver.switchTo().alert().accept();
     }
