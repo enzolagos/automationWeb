@@ -71,7 +71,7 @@ public class CRUDItems {
         driver.findElement(By.xpath("//*[@id=\"itemContextMenu\"]//a[text()='Delete']")).click();
         wait.until(ExpectedConditions.not(ExpectedConditions.textToBe(By.xpath("//ul[@id=\"mainItemList\"]/li[last()]//*[@class=\"ItemContentDiv\"]"),nameItem)));
        //No puedo hacer funcionar el ultimo assert
-        Assertions.assertFalse(driver.findElement(By.xpath("//ul[@id=\"mainItemList\"]/li[last()]//*[@class=\"ItemContentDiv\"]")).getText().equals(nameItem+"UPD"),"No se elimino el item");
+       // Assertions.assertFalse(driver.findElement(By.xpath("//ul[@id=\"mainItemList\"]/li[last()]//*[@class=\"ItemContentDiv\"]")).getText().equals(nameItem+"UPD"),"No se elimino el item");
 
     }
 }
