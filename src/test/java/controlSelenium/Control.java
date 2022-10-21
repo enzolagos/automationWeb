@@ -2,7 +2,11 @@ package controlSelenium;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import singletonSession.Session;
+
+import java.time.Duration;
 
 public class Control {
     protected By locator;
@@ -33,5 +37,15 @@ public class Control {
     public String getAttribute(String value){
         this.findControl();
         return control.getAttribute(value);
+    }
+    public void waitClickable()
+    {
+        // todo --> factory para instanciar el wait una sola vez
+        WebDriverWait wait = new WebDriverWait(Session.getInstance().getBrowser(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(this.locator));
+    }
+    public void waitTextToBe(String texto){
+        WebDriverWait wait = new WebDriverWait(Session.getInstance().getBrowser(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.textToBe(this.locator,texto));
     }
 }

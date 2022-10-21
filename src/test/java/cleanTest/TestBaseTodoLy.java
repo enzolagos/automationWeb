@@ -2,10 +2,7 @@ package cleanTest;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import pages.todoLy.LoginModal;
-import pages.todoLy.MainPage;
-import pages.todoLy.MenuSection;
-import pages.todoLy.SettingsPage;
+import pages.todoLy.*;
 import singletonSession.Session;
 
 public class TestBaseTodoLy {
@@ -13,6 +10,7 @@ public class TestBaseTodoLy {
     public LoginModal loginModal = new LoginModal();
     public MenuSection menuSection = new MenuSection();
     public SettingsPage settingsPage = new SettingsPage();
+    public HomeModal homeModal = new HomeModal();
 
     @BeforeEach
     public void setup(){
