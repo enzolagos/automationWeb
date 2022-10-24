@@ -1,4 +1,4 @@
-package cleanTest;
+package cleanTest.todoLy;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
