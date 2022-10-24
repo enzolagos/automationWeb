@@ -39,12 +39,10 @@ public class CreateEditDeleteProjectTest extends TestBaseTodoist {
 
         //DELETE PROJECT
         mainPage.menuProjectButton.click();
-        Thread.sleep(1000); //cambiar
-        mainPage.deleteMenuOptionButton.waitClickable();
         mainPage.deleteMenuOptionButton.click();
         deleteTabPage.delete.click();
         homePage.inboxButton.waitClickable();
-        /*Falla ultimo assertion*/
-
+        /*Este assertion solo es valido si no habian antes proyectos creados*/
+        Assertions.assertFalse(mainPage.listaProyectos.hayElementos(),"Error no se ha eliminado");
     }
 }

@@ -2,6 +2,7 @@ package pages.todoist;
 
 import controlSelenium.Button;
 import controlSelenium.Control;
+import controlSelenium.UnorderedList;
 import org.openqa.selenium.By;
 import singletonSession.Session;
 
@@ -11,5 +12,5 @@ public class MainPage {
     public Button menuProjectButton = new Button(By.xpath("//li[last()]//div[@class=\"fgALZGUA6SZg9blSarq2hg== _7DCqR7o3BYjme7edphDp8A== f9408a0e _0e4ff085\"]"));
     public Button editMenuOptionButton = new Button(By.xpath("//*[@class = \"icon_menu_item__content\" and text()=\"Edit project\"]"));
     public Button deleteMenuOptionButton = new Button(By.xpath("//*[@class = 'icon_menu_item__content' and text()='Delete project']"));
-  //  public int cantProjCreados = Integer.parseInt(new Control(By.xpath("//*[@id=\"projects_list\"]")).getAttribute("childElementCount"));
+    public UnorderedList listaProyectos = new UnorderedList(By.id("projects_list"));
 }
