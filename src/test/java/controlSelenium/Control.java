@@ -40,12 +40,19 @@ public class Control {
     }
     public void waitClickable()
     {
-        // todo --> factory para instanciar el wait una sola vez
         WebDriverWait wait = new WebDriverWait(Session.getInstance().getBrowser(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(this.locator));
     }
     public void waitTextToBe(String texto){
         WebDriverWait wait = new WebDriverWait(Session.getInstance().getBrowser(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.textToBe(this.locator,texto));
+    }
+    public void waitURLToChange(String url){
+        WebDriverWait wait = new WebDriverWait(Session.getInstance().getBrowser(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.urlToBe(url));
+    }
+    public void waitUntilChangeState(String attribute,String value){
+        WebDriverWait wait = new WebDriverWait(Session.getInstance().getBrowser(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.attributeToBe(this.locator,attribute,value));
     }
 }
