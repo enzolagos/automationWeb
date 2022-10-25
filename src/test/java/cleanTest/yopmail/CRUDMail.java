@@ -17,7 +17,7 @@ public class CRUDMail extends TestBaseYopmail{
         String email = ""+new Date().getTime()+"@yopmail.com";
         homePage.nameMailTextbox.setText(email);
         homePage.createEmailButton.click();
-        inboxPage.newMailButton.waitURLToChange("https://yopmail.com/en/wm");
+        Session.getInstance().waitURLToChange("https://yopmail.com/en/wm");
         Assertions.assertTrue(inboxPage.newMailButton.isControlDisplayed(), "Error no se ha creado");
 
         //MANDADO DE MAIL
@@ -38,8 +38,6 @@ public class CRUDMail extends TestBaseYopmail{
         inboxPage.iframeInbox.waitUntilChangeState("state","full");
 
         Session.getInstance().changeIFrame("ifinbox");
-        System.out.println(inboxPage.lastMailSpan.getAttribute("textContent"));
-        System.out.println(email);
         Assertions.assertEquals(inboxPage.lastMailSpan.getAttribute("textContent"), email,"Error el mail no se envio");
     }
 }

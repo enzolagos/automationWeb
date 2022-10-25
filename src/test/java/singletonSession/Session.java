@@ -2,6 +2,10 @@ package singletonSession;
 
 import factoryBrowser.FactoryBrowser;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class Session {
     private static Session session=null;
@@ -31,6 +35,10 @@ public class Session {
     }
     public void leaveIFrame(){
         session.browser.switchTo().defaultContent();
+    }
+    public void waitURLToChange(String url){
+        WebDriverWait wait = new WebDriverWait(browser, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.urlToBe(url));
     }
 
 

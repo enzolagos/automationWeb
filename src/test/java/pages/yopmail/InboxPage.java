@@ -2,14 +2,15 @@ package pages.yopmail;
 
 import controlSelenium.Button;
 import controlSelenium.Control;
+import controlSelenium.IFrame;
 import controlSelenium.TextBox;
 import org.openqa.selenium.By;
 
 public class InboxPage {
     public Button newMailButton = new Button(By.id("newmail"));
     public Button refreshButton = new Button(By.id("refresh"));
-    public Control iframeMail = new Control(By.xpath("//iframe[@name=\"ifmail\"]"));
-    public Control iframeInbox = new Control(By.xpath("//iframe[@name=\"ifinbox\"]"));
+    public IFrame iframeMail = new IFrame(By.xpath("//iframe[@name=\"ifmail\"]"));
+    public IFrame iframeInbox = new IFrame(By.xpath("//iframe[@name=\"ifinbox\"]"));
 
 
     //iframe enviar email

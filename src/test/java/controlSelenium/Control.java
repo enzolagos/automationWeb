@@ -47,10 +47,7 @@ public class Control {
         WebDriverWait wait = new WebDriverWait(Session.getInstance().getBrowser(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.textToBe(this.locator,texto));
     }
-    public void waitURLToChange(String url){
-        WebDriverWait wait = new WebDriverWait(Session.getInstance().getBrowser(), Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.urlToBe(url));
-    }
+
     public void waitUntilChangeState(String attribute,String value){
         WebDriverWait wait = new WebDriverWait(Session.getInstance().getBrowser(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.attributeToBe(this.locator,attribute,value));
