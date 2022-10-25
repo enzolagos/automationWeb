@@ -26,6 +26,12 @@ public class Session {
     public WebDriver getBrowser() {
         return browser;
     }
+    public void changeIFrame(String iframeID){
+        session.browser.switchTo().frame(iframeID);
+    }
+    public void leaveIFrame(){
+        session.browser.switchTo().defaultContent();
+    }
 
 
 }
