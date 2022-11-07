@@ -23,4 +23,11 @@ public class InboxPage {
     //iframe leftInbox
     public Control lastMailSpan = new Control(By.xpath("//*[@class =\"mctn\"]/*[@class=\"m\"]//span[@class=\"lmf\"]"));
 
+    //funcion de fede r
+    public boolean searchEmailSender(String emailName)
+    {
+        Button mailToFind = new Button(By.xpath("//span[@class='lmf' and text()='" + emailName +"']"));
+        return mailToFind.isControlDisplayed();
+
+    }
 }

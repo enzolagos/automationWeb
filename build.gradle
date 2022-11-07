@@ -1,6 +1,16 @@
-plugins {
-    id 'java'
+buildscript {
+
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath "io.qameta.allure:allure-gradle:2.3"
+    }
 }
+
+apply plugin: 'java'
+apply plugin: 'io.qameta.allure'
 
 group 'org.example'
 version '1.0-SNAPSHOT'
@@ -10,13 +20,37 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.testng:testng:7.1.0'
-    implementation 'org.testng:testng:7.1.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
     implementation 'org.seleniumhq.selenium:selenium-java:4.5.0'
+    testImplementation 'io.qameta.allure:allure-junit5:2.19.0'
+    runtimeOnly 'org.aspectj:aspectjweaver:1.9.9.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.9.1'
 }
 
+
+// gradle clean test -PenvFile=qa.properties
+
+def envFile = !project.hasProperty("envFile")?"qa.properties":project.properties['envFile']
 test {
+    systemProperty("envFile",envFile.toString())
     useJUnitPlatform()
+}
+
+def testSuite = !project.hasProperty("testSuite")?"Acceptance":project.properties['testSuite']
+def tags = tasks.register("tags",Test) {
+    systemProperty("envFile",envFile.toString())
+    systemProperty("testSuite",testSuite.toString())
+    useJUnitPlatform {
+        includeTags testSuite
+    }
+}
+//gradle clean -x test -PenvFile=qa.properties tags -PtestSuite=SmokeTest
+
+
+
+allure {
+    version = '2.2.1'
+    autoconfigure = true
 }
